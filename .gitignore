@@ -1,0 +1,27 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.log*
+
+# Additional ignores
+*.dmg
+*.zip
+*.exe
+*.AppImage
+*.deb
+*.snap
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Testing
+coverage/
+.nyc_output/
+
+# BMAD user memory (optional)
+.bmad-user-memory/

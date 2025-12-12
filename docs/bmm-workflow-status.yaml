@@ -1,0 +1,64 @@
+# Workflow Status Template
+
+# This tracks progress through BMM methodology Analysis, Planning, and Solutioning phases.
+# Implementation phase is tracked separately in sprint-status.yaml
+
+# STATUS DEFINITIONS:
+# ==================
+# Initial Status (before completion):
+#   - required: Must be completed to progress
+#   - optional: Can be completed but not required
+#   - recommended: Strongly suggested but not required
+#   - conditional: Required only if certain conditions met (e.g., if_has_ui)
+#
+# Completion Status:
+#   - {file-path}: File created/found (e.g., "docs/product-brief.md")
+#   - skipped: Optional/conditional workflow that was skipped
+
+generated: '2025-12-11'
+project: 'gs-compressor'
+project_type: 'greenfield'
+selected_track: 'enterprise-bmad-method'
+field_type: 'greenfield'
+workflow_path: '.bmad/bmm/workflows/workflow-status/paths/enterprise-greenfield.yaml'
+workflow_status:
+  - id: 'research'
+    status: 'skipped'
+    agent: 'analyst'
+    name: 'Research'
+  - id: 'product-brief'
+    status: 'docs/analysis/product-brief-gs-compressor-2025-12-11.md'
+    agent: 'analyst'
+    name: 'Product Brief'
+  - id: 'prd'
+    status: 'docs/prd.md'
+    agent: 'pm'
+    name: 'PRD'
+  - id: 'create-ux-design'
+    status: 'docs/ux-design-specification.md'
+    agent: 'ux-designer'
+    name: 'UX Design'
+  - id: 'create-architecture'
+    status: 'docs/architecture.md'
+    agent: 'architect'
+    name: 'System Architecture'
+  - id: 'test-design'
+    status: 'docs/test-design-system.md'
+    agent: 'tea'
+    name: 'Test Design'
+  - id: 'validate-architecture'
+    status: 'recommended'
+    agent: 'architect'
+    name: 'Validate Architecture'
+  - id: 'create-epics-and-stories'
+    status: 'docs/epics.md'
+    agent: 'pm'
+    name: 'Epics & Stories'
+  - id: 'implementation-readiness'
+    status: 'docs/implementation-readiness-report-2025-12-12.md'
+    agent: 'architect'
+    name: 'Implementation Readiness'
+  - id: 'sprint-planning'
+    status: 'docs/sprint-status.yaml'
+    agent: 'sm'
+    name: 'Sprint Planning'

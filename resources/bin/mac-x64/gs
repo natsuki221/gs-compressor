@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Extract output file from arguments (format: -sOutputFile=...)
+OUTPUT_FILE=""
+for arg in "$@"
+do
+    if [[ $arg == -sOutputFile=* ]]; then
+        OUTPUT_FILE="${arg#*=}"
+    fi
+done
+
+if [ -n "$OUTPUT_FILE" ]; then
+    # Simulate processing delay
+    sleep 0.5
+    # Create dummy output file
+    echo "Mock Compressed Content" > "$OUTPUT_FILE"
+    echo "Created mock output at: $OUTPUT_FILE"
+else
+    echo "10.04.0 (MOCK)"
+fi

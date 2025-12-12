@@ -4,9 +4,10 @@
   <img src="resources/icon.png" alt="GS Compressor Icon" width="128" height="128">
   
   **Local PDF Optimization Tool**
-  
+
   一個基於 Ghostscript 的本地 PDF 壓縮工具，讓你在不上傳到雲端的情況下快速優化 PDF 檔案大小。
-  
+
+  [![CI](https://github.com/natsuki221/gs-compressor/workflows/CI/badge.svg)](https://github.com/natsuki221/gs-compressor/actions)
   [![macOS](https://img.shields.io/badge/macOS-ARM64%20%7C%20Intel-blue)]()
   [![Electron](https://img.shields.io/badge/Electron-39.2.6-47848F)]()
   [![React](https://img.shields.io/badge/React-19.2.1-61DAFB)]()
@@ -78,11 +79,11 @@ gs --version
 
 ### 壓縮模式說明
 
-| 模式 | 適用情境 | 解析度 | 檔案大小 |
-|------|---------|--------|---------|
-| **Screen** | 螢幕閱讀、郵件附件 | 72 DPI | 最小 |
-| **Ebook** (預設) | 電子書、一般閱讀 | 150 DPI | 中等 |
-| **Prepress** | 印刷、高品質輸出 | 300 DPI | 較大 |
+| 模式             | 適用情境           | 解析度  | 檔案大小 |
+| ---------------- | ------------------ | ------- | -------- |
+| **Screen**       | 螢幕閱讀、郵件附件 | 72 DPI  | 最小     |
+| **Ebook** (預設) | 電子書、一般閱讀   | 150 DPI | 中等     |
+| **Prepress**     | 印刷、高品質輸出   | 300 DPI | 較大     |
 
 ---
 

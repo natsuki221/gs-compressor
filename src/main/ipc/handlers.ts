@@ -18,11 +18,6 @@ export function setupHandlers(): void {
 
       // 2. Get Arguments
       const args = getGhostscriptArgs(filePath, outputPath, mode)
-      
-      // DEBUG: Log the command being executed
-      console.log('[GS DEBUG] Input:', filePath)
-      console.log('[GS DEBUG] Output:', outputPath)
-      console.log('[GS DEBUG] Args:', args.join(' '))
 
       // 3. Execute
       await executeGhostscript(args)

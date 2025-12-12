@@ -1,0 +1,141 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-format:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint src/ tests/ --max-warnings=0
+
+      - name: Check Prettier formatting
+        run: npx prettier --check .
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test:unit -- --run
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: |
+            coverage/
+          retention-days: 7
+
+  build-macos:
+    name: Build (macOS)
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Ghostscript (required for tests/build)
+        run: brew install ghostscript
+
+      - name: Build application
+        run: npm run build
+        env:
+          # Skip code signing in CI
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Verify build artifacts
+        run: |
+          test -d out/main || (echo "Main process build failed" && exit 1)
+          test -d out/renderer || (echo "Renderer process build failed" && exit 1)
+          test -f out/main/index.js || (echo "Main entry point missing" && exit 1)
+          echo "✅ Build artifacts verified"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output-macos
+          path: |
+            out/
+          retention-days: 7
+
+  # E2E tests are currently disabled due to Electron launch issues
+  # Will be re-enabled after fixing ESM/CommonJS compatibility
+  # See: https://github.com/natsuki221/gs-compressor/issues/TBD
+  #
+  # e2e-tests:
+  #   name: E2E Tests
+  #   runs-on: macos-latest
+  #   needs: build-macos
+  #
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '20'
+  #         cache: 'npm'
+  #
+  #     - name: Install dependencies
+  #       run: npm ci
+  #
+  #     - name: Install Ghostscript
+  #       run: brew install ghostscript
+  #
+  #     - name: Install Playwright browsers
+  #       run: npx playwright install
+  #
+  #     - name: Run E2E tests
+  #       run: npm run test:e2e
+  #
+  #     - name: Upload test results
+  #       if: always()
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: e2e-test-results
+  #         path: |
+  #           test-results/
+  #         retention-days: 7

@@ -87,9 +87,9 @@ app.whenReady().then(() => {
   })
 
   // Verify Ghostscript connection
-  getGhostscriptVersion()
-
-    .catch((err: Error) => console.error('Failed to connect to Ghostscript:', err))
+  getGhostscriptVersion().catch((err: Error) =>
+    console.error('Failed to connect to Ghostscript:', err)
+  )
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common

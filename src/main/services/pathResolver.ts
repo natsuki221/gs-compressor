@@ -26,9 +26,9 @@ export function getBinaryPath(): string {
 
   // Common Homebrew locations
   const commonPaths = [
-    '/opt/homebrew/bin/gs',      // Apple Silicon
-    '/usr/local/bin/gs',         // Intel Mac
-    '/usr/bin/gs'                // System install
+    '/opt/homebrew/bin/gs', // Apple Silicon
+    '/usr/local/bin/gs', // Intel Mac
+    '/usr/bin/gs' // System install
   ]
 
   for (const path of commonPaths) {
@@ -40,8 +40,8 @@ export function getBinaryPath(): string {
   // Not found - throw helpful error
   throw new Error(
     'Ghostscript not found on your system.\n\n' +
-    'Please install it using Homebrew:\n' +
-    '  brew install ghostscript\n\n' +
-    'Then restart the application.'
+      'Please install it using Homebrew:\n' +
+      '  brew install ghostscript\n\n' +
+      'Then restart the application.'
   )
 }

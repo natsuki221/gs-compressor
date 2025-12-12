@@ -1,6 +1,10 @@
 import { test as base, _electron as electron, ElectronApplication, Locator } from '@playwright/test'
 import { FileFactory } from './factories/file-factory'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 type TestFixtures = {
   fileFactory: FileFactory

@@ -10,6 +10,7 @@ export default defineConfig({
   expect: {
     timeout: 10 * 1000
   },
+  outputDir: 'test-results/artifacts', // Separate artifacts directory
   use: {
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
@@ -17,7 +18,7 @@ export default defineConfig({
     actionTimeout: 15 * 1000
   },
   reporter: [
-    ['html', { outputFolder: 'test-results/html' }],
+    ['html', { outputFolder: 'test-results/html-report' }],
     ['junit', { outputFile: 'test-results/junit.xml' }],
     ['list']
   ]

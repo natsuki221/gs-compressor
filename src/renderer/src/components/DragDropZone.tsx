@@ -10,7 +10,11 @@ interface DragDropZoneProps {
   compact?: boolean
 }
 
-export function DragDropZone({ onFilesDropped, disabled = false, compact = false }: DragDropZoneProps) {
+export function DragDropZone({
+  onFilesDropped,
+  disabled = false,
+  compact = false
+}: DragDropZoneProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [errorShake, setErrorShake] = useState(false)
 
@@ -58,12 +62,6 @@ export function DragDropZone({ onFilesDropped, disabled = false, compact = false
       }
 
       if (validFiles.length > 0) {
-        // DEBUG: Check if path exists on File objects
-        validFiles.forEach((f, i) => {
-          console.log(`[FILE DEBUG ${i}] name:`, f.name)
-          console.log(`[FILE DEBUG ${i}] path:`, (f as any).path)
-          console.log(`[FILE DEBUG ${i}] keys:`, Object.keys(f))
-        })
         onFilesDropped(validFiles)
         toast.success(`${validFiles.length} file(s) added to queue`)
       }
@@ -76,10 +74,7 @@ export function DragDropZone({ onFilesDropped, disabled = false, compact = false
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={cn(
-        "h-full w-full animate-in fade-in duration-500",
-        compact ? "p-0" : "p-6"
-      )}
+      className={cn('h-full w-full animate-in fade-in duration-500', compact ? 'p-0' : 'p-6')}
     >
       <Card
         className={cn(
@@ -92,7 +87,12 @@ export function DragDropZone({ onFilesDropped, disabled = false, compact = false
           compact ? 'flex-row gap-4 p-4' : 'flex-col p-8'
         )}
       >
-        <div className={cn("pointer-events-none flex items-center", compact ? "flex-row gap-3" : "flex-col gap-4 text-center")}>
+        <div
+          className={cn(
+            'pointer-events-none flex items-center',
+            compact ? 'flex-row gap-3' : 'flex-col gap-4 text-center'
+          )}
+        >
           <div
             className={cn(
               'rounded-full transition-colors duration-300 flex items-center justify-center',
@@ -100,15 +100,25 @@ export function DragDropZone({ onFilesDropped, disabled = false, compact = false
               compact ? 'h-10 w-10 p-2' : 'h-16 w-16 p-4'
             )}
           >
-            <Upload className={cn("transition-transform duration-300", isDragging && "scale-110", compact ? "h-5 w-5" : "h-8 w-8")} />
+            <Upload
+              className={cn(
+                'transition-transform duration-300',
+                isDragging && 'scale-110',
+                compact ? 'h-5 w-5' : 'h-8 w-8'
+              )}
+            />
           </div>
 
           <div className="space-y-1">
-            <h3 className={cn("font-semibold tracking-tight", compact ? "text-sm" : "text-2xl")}>
-              {isDragging ? 'Drop to Add' : (compact ? 'Drop more PDFs here' : 'Drop PDF here')}
+            <h3 className={cn('font-semibold tracking-tight', compact ? 'text-sm' : 'text-2xl')}>
+              {isDragging ? 'Drop to Add' : compact ? 'Drop more PDFs here' : 'Drop PDF here'}
             </h3>
-            <p className={cn("text-muted-foreground", compact ? "text-xs" : "text-sm")}>
-              {isDragging ? 'Release to queue' : (compact ? 'Add to existing queue' : 'Support for multiple files')}
+            <p className={cn('text-muted-foreground', compact ? 'text-xs' : 'text-sm')}>
+              {isDragging
+                ? 'Release to queue'
+                : compact
+                  ? 'Add to existing queue'
+                  : 'Support for multiple files'}
             </p>
           </div>
         </div>
@@ -116,4 +126,3 @@ export function DragDropZone({ onFilesDropped, disabled = false, compact = false
     </div>
   )
 }
-

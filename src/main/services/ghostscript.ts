@@ -13,7 +13,7 @@ export interface ExecutionResult {
 
 export function spawnGhostscript(args: string[]): ChildProcess {
   const binaryPath = getBinaryPath()
-  
+
   if (!existsSync(binaryPath)) {
     throw new Error(`Ghostscript binary not found at: ${binaryPath}`)
   }

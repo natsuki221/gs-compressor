@@ -38,4 +38,3 @@ if (process.contextIsolated) {
   // @ts-ignore (define in d.ts)
   window.electronAPI = api
 }
-

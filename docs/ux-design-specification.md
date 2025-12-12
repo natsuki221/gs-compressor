@@ -152,10 +152,9 @@ gs-compressor 是一個專為注重隱私的用戶設計的本地端桌面應用
 ### 2.4 Novel UX Patterns
 
 - **Intent-Based Cards**: 我們不使用下拉選單選擇品質，而是使用一組大張的、視覺化的「意圖卡片」。
-  - 卡片 1: **Screen** (適合螢幕閱讀，高壓縮)
-  - 卡片 2: **E-Book** (平衡品質與大小，中壓縮)
-  - 卡片 3: **Print** (最高品質，低壓縮)
-  - 卡片 4: **Prepress** (AI 準備，色彩無損)
+  - 卡片 1: **AI Mode** (適合上傳 LLM，移除圖片，極致壓縮)
+  - 卡片 2: **Print Mode** (高品質列印，300 DPI)
+  - 卡片 3: **Transfer Mode** (Email/Line 傳輸，150 DPI)
     這種「視覺化意圖」在 PDF 壓縮工具中是創新的。
 
 ### 2.5 Experience Mechanics

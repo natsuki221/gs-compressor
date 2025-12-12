@@ -20,10 +20,10 @@
 
 - 🚀 **本地壓縮** - 無需上傳，保護隱私
 - 🎯 **批量處理** - 支援同時壓縮多個 PDF 檔案
-- 📊 **智慧優化** - 三種壓縮模式（Screen/Ebook/Prepress）
+- 📊 **智慧優化** - 三種場景模式（AI/Print/Transfer）
 - 💾 **自動檔名** - 壓縮檔自動命名為 `原檔名_compressed.pdf`
-- 🎨 **現代 UI** - 直覺的拖放介面，支援深色模式
-- 📈 **即時回饋** - 顯示壓縮進度與檔案大小變化
+- 🎨 **Fusion Pro UI** - 專業三欄式佈局，支援預覽與即時設定
+- 📈 **即時回饋** - 顯示壓縮進度、預估大小與壓縮比
 
 ---
 
@@ -31,7 +31,7 @@
 
 <div align="center">
   <img src="docs/screenshots/main.png" alt="Main Interface" width="600">
-  <p><i>Main Interface - Drag & Drop to Add Files</i></p>
+  <p><i>Fusion Pro Layout: Queue | Preview | Settings</i></p>
 </div>
 
 ---
@@ -73,18 +73,21 @@ gs --version
 ## 🚀 Usage
 
 1. **開啟應用**
-2. **拖放 PDF 檔案** 到視窗中，或點擊選擇檔案
-3. **選擇壓縮模式**（可選，預設為 Ebook）
+2. **拖放 PDF 檔案** 到左側佇列，或點擊「新增檔案」
+3. **在右側面板選擇場景**：
+    - 🤖 **AI Mode**: 為 LLM 上傳優化 (極致壓縮)
+    - 🖨️ **Print Mode**: 為實體列印優化
+    - 📧 **Transfer Mode**: 平衡畫質與大小
 4. **點擊 Compress Files** 開始壓縮
-5. **完成後點擊 Reveal in Finder** 查看結果
+5. **在佇列中點擊「開啟位置」** 查看結果
 
 ### 壓縮模式說明
 
-| 模式             | 適用情境           | 解析度  | 檔案大小 |
+| 模式             | 適用情境           | 特性  | 檔案大小 |
 | ---------------- | ------------------ | ------- | -------- |
-| **Screen**       | 螢幕閱讀、郵件附件 | 72 DPI  | 最小     |
-| **Ebook** (預設) | 電子書、一般閱讀   | 150 DPI | 中等     |
-| **Prepress**     | 印刷、高品質輸出   | 300 DPI | 較大     |
+| **AI Mode**       | ChatGPT/Claude 上傳 | 移除圖片、向量化文字  | 極小     |
+| **Print Mode**   | 實體文件列印   | 300 DPI、保留細節 | 較大     |
+| **Transfer Mode**| Email/Line 傳輸   | 150 DPI、平衡壓縮 | 中等     |
 
 ---
 

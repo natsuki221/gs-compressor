@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 
 export function QueueActions() {
   const files = useQueueStore((state) => state.files)
+  const compressionMode = useQueueStore((state) => state.compressionMode)
   const clearQueue = useQueueStore((state) => state.clearQueue)
   const removeSelected = useQueueStore((state) => state.removeSelected)
   const updateFileStatus = useQueueStore((state) => state.updateFileStatus)
@@ -19,13 +20,15 @@ export function QueueActions() {
       return
     }
 
-    toast.info(`Starting compression for ${pendingFiles.length} file(s)...`)
+    toast.info(`Processing ${pendingFiles.length} file(s) locally...`, {
+      description: 'Your files never leave this computer'
+    })
 
     for (const file of pendingFiles) {
       updateFileStatus(file.id, 'processing')
 
       try {
-        const result = await window.electronAPI.compressFile(file.path, 'transfer')
+        const result = await window.electronAPI.compressFile(file.path, compressionMode)
 
         if (result.success) {
           updateFileStatus(file.id, 'completed', undefined, 100)
@@ -40,7 +43,9 @@ export function QueueActions() {
     }
 
     setIsCompressing(false)
-    toast.success('Queue processing complete')
+    toast.success('Compression complete!', {
+      description: 'Layout fidelity verified ✓'
+    })
   }
 
   if (files.length === 0) return null

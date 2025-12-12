@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import type { CompressionMode } from '@shared/types'
 
 export type FileStatus = 'pending' | 'processing' | 'completed' | 'error'
 
@@ -18,6 +19,8 @@ export interface QueueItem {
 
 interface QueueState {
   files: QueueItem[]
+  compressionMode: CompressionMode
+  setCompressionMode: (mode: CompressionMode) => void
   addFiles: (newFiles: File[]) => void
   removeFile: (id: string) => void
   removeSelected: () => void
@@ -35,6 +38,9 @@ interface QueueState {
 
 export const useQueueStore = create<QueueState>((set) => ({
   files: [],
+  compressionMode: 'transfer', // Default to balanced mode
+
+  setCompressionMode: (mode) => set({ compressionMode: mode }),
 
   addFiles: (newFiles) =>
     set((state) => {

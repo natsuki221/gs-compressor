@@ -5,12 +5,13 @@
   
   **Local PDF Optimization Tool**
 
-  一個基於 Ghostscript 的本地 PDF 壓縮工具，讓你在不上傳到雲端的情況下快速優化 PDF 檔案大小。
+一個基於 Ghostscript 的本地 PDF 壓縮工具，讓你在不上傳到雲端的情況下快速優化 PDF 檔案大小。
 
-  [![CI](https://github.com/natsuki221/gs-compressor/workflows/CI/badge.svg)](https://github.com/natsuki221/gs-compressor/actions)
-  [![macOS](https://img.shields.io/badge/macOS-ARM64%20%7C%20Intel-blue)]()
-  [![Electron](https://img.shields.io/badge/Electron-39.2.6-47848F)]()
-  [![React](https://img.shields.io/badge/React-19.2.1-61DAFB)]()
+[![CI](https://github.com/natsuki221/gs-compressor/workflows/CI/badge.svg)](https://github.com/natsuki221/gs-compressor/actions)
+[![macOS](https://img.shields.io/badge/macOS-ARM64%20%7C%20Intel-blue)]()
+[![Electron](https://img.shields.io/badge/Electron-39.2.6-47848F)]()
+[![React](https://img.shields.io/badge/React-19.2.1-61DAFB)]()
+
 </div>
 
 ---

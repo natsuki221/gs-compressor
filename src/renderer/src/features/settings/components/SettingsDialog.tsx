@@ -60,11 +60,7 @@ export function SettingsDialog() {
             <div className="space-y-3 opacity-50 pointer-events-none">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-700">Custom DPI</span>
-                <input
-                  type="range"
-                  disabled
-                  className="w-32 h-2 bg-slate-200 rounded-lg"
-                />
+                <input type="range" disabled className="w-32 h-2 bg-slate-200 rounded-lg" />
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-700">Downsampling</span>

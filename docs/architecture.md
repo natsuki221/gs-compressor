@@ -395,3 +395,20 @@ IPC 和命名模式被嚴格定義以防止「義大利麵條式代碼」。
 
 **首要實作優先級:**
 使用以下指令初始化專案: `npm create @quick-start/electron . -- --template react`
+
+### 架構驗證日誌 (Architecture Validation Log)
+
+**2025-12-13 | v2.0.0-pre | Status: PASSED**
+
+**驗證摘要:**
+對 Fusion Pro Layout 與 v2.0.0-pre 代碼庫進行了全面的 Reality Check。實作與架構高度一致。
+
+**正式化的架構決策:**
+
+1.  **策略模式 (Strategy Pattern)**: 正式認可 `compressionStrategies.ts` 為處理多樣化 Ghostscript 參數的標準模式。這取代了原先較為僵化的配置想法。
+2.  **UI 模組化**: 確認 `QueueItem` 與 `QueueList` 在新佈局中的可重用性，這驗證了我們對元件粒度的初步決策是正確的。
+
+**待解決的架構項目 (Open Items):**
+
+1.  **PDF 預覽渲染**: 需在下一階段決定具體技術 (pdf.js vs native)。
+2.  **macOS 代碼簽名**: 需在發布管道中解決 `gs` 二進位檔的簽名問題。

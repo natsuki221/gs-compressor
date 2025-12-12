@@ -32,7 +32,6 @@ export const SCENARIO_PRESETS: ScenarioPreset[] = [
   }
 ]
 
-
 export interface ElectronAPI {
   // Methods
   compressFile: (

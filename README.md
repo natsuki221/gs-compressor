@@ -1,7 +1,7 @@
 # GS Compressor
 
 <div align="center">
-  <img src="resources/icon.png" alt="GS Compressor Icon" width="128" height="128">
+  <img src="resources/gs-compressor-logo.png" alt="GS Compressor Icon" width="128" height="128">
   
   **Local PDF Optimization Tool**
 

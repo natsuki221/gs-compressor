@@ -1,6 +1,6 @@
 {
   "name": "gs-compressor",
-  "version": "2.0.0-pre",
+  "version": "2.0.5",
   "description": "Local PDF Optimization Tool - 基於 Ghostscript 的本地 PDF 壓縮工具",
   "type": "module",
   "main": "./out/main/index.js",

@@ -5,7 +5,7 @@ import { Badge } from '../../../components/ui/badge'
 import { Checkbox } from '../../../components/ui/checkbox'
 import { Progress } from '../../../components/ui/progress'
 import { QueueItem as QueueItemType, useQueueStore } from '../store/queueStore'
-import { cn } from '../../../lib/utils'
+import { cn, truncateFilename } from '../../../lib/utils'
 
 interface QueueItemProps {
   item: QueueItemType
@@ -47,7 +47,7 @@ export function QueueItem({ item }: QueueItemProps) {
     : 0
 
   return (
-    <div className="flex items-center p-3 mb-2 bg-card rounded-lg border shadow-sm group hover:shadow-md transition-all">
+    <div className="flex items-center p-3 mb-2 bg-card rounded-lg border shadow-sm group hover:shadow-md transition-all overflow-hidden">
       {/* Selection (only if not processing/completed maybe? keeping enabled for now) */}
       <div className="mr-3">
         <Checkbox
@@ -72,13 +72,13 @@ export function QueueItem({ item }: QueueItemProps) {
       {/* Info */}
       <div className="flex-1 min-w-0 mr-4">
         <div className="flex justify-between items-start mb-1">
-          <h4 className="font-medium text-sm truncate pr-2" title={item.name}>
-            {item.name}
+          <h4 className="font-medium text-sm truncate pr-2 max-w-[140px]" title={item.name}>
+            {truncateFilename(item.name)}
           </h4>
           <Badge
             variant="outline"
             className={cn(
-              'text-xs font-normal whitespace-nowrap ml-2',
+              'text-xs font-normal whitespace-nowrap ml-2 shrink-0',
               getStatusColor(item.status)
             )}
           >
@@ -112,7 +112,7 @@ export function QueueItem({ item }: QueueItemProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 shrink-0">
         {item.status === 'completed' && (
           <Button
             variant="ghost"

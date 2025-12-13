@@ -13,7 +13,7 @@ import {
   FolderSearch,
   Plus
 } from 'lucide-react'
-import { cn } from '../lib/utils'
+import { cn, truncateFilename } from '../lib/utils'
 
 interface QueueSidebarProps {
   onAddFiles: () => void
@@ -111,8 +111,8 @@ export function QueueSidebar({ onAddFiles }: QueueSidebarProps) {
                     {getStatusIcon(file.status)}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium truncate" title={file.name}>
-                      {file.name}
+                    <p className="text-sm font-medium truncate max-w-[200px]" title={file.name}>
+                      {truncateFilename(file.name)}
                     </p>
                   </div>
                   <Badge
